@@ -21,6 +21,8 @@ mongoose.connect(process.env.DB_URI || "mongodb+srv://admin:!pass4sure@cluster0-
 })
   .then(() => {
     console.log('db connection successful!');
+  }).catch(err => {
+    console.log(err);    
   });
 
 app.use(cors());
