@@ -1,5 +1,6 @@
 'use strict';
 
+require('dotenv').config();
 var express = require('express');
 var mongoose = require('mongoose');
 
@@ -8,11 +9,12 @@ const { saveUrl, redirectUrl } = require('./app/route');
 
 var app = express();
 
+
 // Basic Configuration 
 var port = process.env.PORT || 3000;
 
 /** this project needs a db !! **/
-mongoose.connect(process.env.DB_URI || "mongodb+srv://admin:!pass4sure@cluster0-94hvv.mongodb.net/test?retryWrites=true&w=majority", {
+mongoose.connect(process.env.DB_URI, {
   useNewUrlParser: true,
   // useCreateIndex: true,
   useFindAndModify: false,
